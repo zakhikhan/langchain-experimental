@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Union, cast
 
 from langchain.chains.base import Chain
 from langchain.chains.llm import LLMChain
-from langchain_core.language_models import BaseLanguageModel
+from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.prompts.few_shot import FewShotPromptTemplate
 from langchain_core.utils.pydantic import is_basemodel_instance
 from pydantic import BaseModel, ConfigDict, model_validator
@@ -30,7 +30,7 @@ class SyntheticDataGenerator(BaseModel):
     """
 
     template: FewShotPromptTemplate
-    llm: Optional[BaseLanguageModel] = None
+    llm: Optional[BaseChatModel] = None
     results: list = []
     llm_chain: Optional[Chain] = None
     example_input_key: str = "example"
